@@ -8,3 +8,13 @@ function getComputerChoice(){
 
 }
 
+function getHumanChoice(){
+    let userChoice = prompt("What's your choice"); 
+    while(userChoice > 2){
+        userChoice = prompt("What's your choice");
+    }
+
+    return userChoice; 
+}
+
+
