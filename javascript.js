@@ -8,6 +8,9 @@ function getComputerChoice(){
 
 }
 
+compChoice = getComputerChoice(); 
+console.log(compChoice);
+
 function getHumanChoice(){
     let userChoice = prompt("What's your choice"); 
     while(userChoice > 2){
@@ -16,5 +19,8 @@ function getHumanChoice(){
 
     return userChoice; 
 }
+
+humanChoice = getHumanChoice();
+humanChoice = Number(humanChoice); 
 
 
