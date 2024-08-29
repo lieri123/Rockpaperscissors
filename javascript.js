@@ -44,17 +44,41 @@ console.log(humanChoice);
 
 function playRound(humanChoice, compChoice){
 
-    let usersymbol = humanChoice.toLowerCase(); 
-    let compsymbol = compChoice.toLowerCase(); 
+    let user_symbol = humanChoice.toLowerCase(); 
+    let comp_symbol = compChoice.toLowerCase(); 
 
-    if(usersymbol == 'rock' && compsymbol == 'scissors'){
-        humanScore += 1; 
+    if(user_symbol == 'rock'){
+
+        if(comp_symbol == 'scissors'){
+            humanScore += 1;
+        }
+        else if(comp_symbol == 'paper'){
+            computerScore += 1; 
+        }
+        return; 
     }
-    else if(usersymbol == 'paper' && compsymbol == 'rock'){
-        humanScore += 1; 
+    else if(user_symbol == 'paper'){
+
+        if(comp_symbol == 'rock'){
+            humanScore += 1; 
+        }
+        else if(comp_symbol == 'scissors'){
+            computerScore += 1; 
+        }
+        return; 
     }
-    else if(usersymbol == 'scissors' && compsymbol == 'paper'){
-        humanScore += 1; 
+    else{
+        if(comp_symbol == 'paper'){
+            humanScore += 1; 
+        }
+
+        else if(comp_symbol == 'rock'){
+            computerScore += 1; 
+        }
+
+        return; 
+
+
     }
 
 }
