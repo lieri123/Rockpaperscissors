@@ -15,7 +15,7 @@ function getComputerChoice(){
         return 'paper'; 
     }
 
-    return  'scissors'
+    return  'scissors'; 
 
 }
 
@@ -28,10 +28,33 @@ function getHumanChoice(){
         userChoice = prompt("What's your choice");
     }
 
-    return userChoice; 
+    if(userChoice == 0){
+        return 'rock'; 
+    }
+    else if(userChoice == 1){
+        return 'paper'; 
+    }
+
+    return  'scissors'
 }
 
 humanChoice = getHumanChoice();
-humanChoice = Number(humanChoice); 
+console.log(humanChoice);
 
 
+function playRound(humanChoice, compChoice){
+
+    let usersymbol = humanChoice.toLowerCase(); 
+    let compsymbol = compChoice.toLowerCase(); 
+
+    if(usersymbol == 'rock' && compsymbol == 'scissors'){
+        humanScore += 1; 
+    }
+    else if(usersymbol == 'paper' && compsymbol == 'rock'){
+        humanScore += 1; 
+    }
+    else if(usersymbol == 'scissors' && compsymbol == 'paper'){
+        humanScore += 1; 
+    }
+
+}
