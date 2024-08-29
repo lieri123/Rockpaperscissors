@@ -3,6 +3,7 @@ let compChoice = "";
 let humanChoice = ""; 
 let humanScore = 0; 
 let computerScore = 0; 
+let counter = 0; 
 
 function getComputerChoice(){
 
@@ -19,8 +20,6 @@ function getComputerChoice(){
 
 }
 
-compChoice = getComputerChoice(); 
-console.log(compChoice);
 
 function getHumanChoice(){
     let userChoice = prompt("What's your choice"); 
@@ -38,47 +37,73 @@ function getHumanChoice(){
     return  'scissors'
 }
 
-humanChoice = getHumanChoice();
-console.log(humanChoice);
 
 
-function playRound(humanChoice, compChoice){
+function playGame(){
+    while(counter < 5){
 
-    let user_symbol = humanChoice.toLowerCase(); 
-    let comp_symbol = compChoice.toLowerCase(); 
+        compChoice = getComputerChoice(); 
+        humanChoice = getHumanChoice();
 
-    if(user_symbol == 'rock'){
+        function playRound(humanChoice, compChoice){
 
-        if(comp_symbol == 'scissors'){
-            humanScore += 1;
+            let user_symbol = humanChoice.toLowerCase(); 
+            let comp_symbol = compChoice.toLowerCase(); 
+
+            if(user_symbol == 'rock'){
+
+                if(comp_symbol == 'scissors'){
+                    humanScore += 1;
+                    console.log("You win! Rock beats Scissors");
+                    return; 
+                }
+                else if(comp_symbol == 'paper'){
+                    computerScore += 1; 
+                    console.log("You lose! Paper beats Rock");
+                    return; 
+                }
+                console.log("You Tie!"); 
+                return; 
+            }
+            else if(user_symbol == 'paper'){
+
+                if(comp_symbol == 'rock'){
+                    humanScore += 1; 
+                    console.log("You win! Paper beats Rock");
+                    return; 
+                }
+                else if(comp_symbol == 'scissors'){
+                    computerScore += 1; 
+                    console.log("You lose! Scissors beats Paper"); 
+                    return; 
+                }
+                console.log("You Tie!")
+                return; 
+            }
+            else{
+                if(comp_symbol == 'paper'){
+                    humanScore += 1; 
+                    console.log("You win! Scissors beats Paper");
+                    return; 
+                }
+
+                else if(comp_symbol == 'rock'){
+                    computerScore += 1; 
+                    console.log("You lose! Rock beats Scissors"); 
+                    return; 
+                }
+                console.log("You Tie!"); 
+
+                return; 
+            }
+
         }
-        else if(comp_symbol == 'paper'){
-            computerScore += 1; 
-        }
-        return; 
+
+        playRound(humanChoice, compChoice); 
+        counter += 1; 
+
+
     }
-    else if(user_symbol == 'paper'){
-
-        if(comp_symbol == 'rock'){
-            humanScore += 1; 
-        }
-        else if(comp_symbol == 'scissors'){
-            computerScore += 1; 
-        }
-        return; 
-    }
-    else{
-        if(comp_symbol == 'paper'){
-            humanScore += 1; 
-        }
-
-        else if(comp_symbol == 'rock'){
-            computerScore += 1; 
-        }
-
-        return; 
-
-
-    }
-
 }
+
+playGame(); 
